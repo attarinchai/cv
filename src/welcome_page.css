@@ -1,0 +1,281 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: whitesmoke;
+}
+.welcome-page h1, p {
+  margin: 0;
+}
+.image {
+  margin-left: 10vw;
+  margin-top: 15vh;
+  width: 300px;
+  height: 500px;
+  border: 2px solid black;
+}
+.white-color {
+  color: white;
+}
+.lang-btn {
+  width: 50px;
+  height: 1.7em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 2px solid black;
+  border-radius: 10%;
+  cursor: pointer;
+  overflow: hidden;
+}
+.lang-current {
+  /*inline-block: 
+    - align from text
+    - seperate the other inline with white-space
+    - line-height or vertical-align should applied
+  */
+  display: inline-block;
+  background-color: #ccc;
+  width: 85%;
+  font-size: 110%;
+  font-weight: 700;
+  vertical-align: top;
+  text-align: center;
+  margin-top: -2%;
+}
+.lang-block {
+  display: inline-block;
+  width: 15%;
+  height: 100%;
+  background: linear-gradient(270deg, white 16%, black 17%);
+  border: 1px solid white;
+}
+.introduction {
+  position: absolute;
+  right: 10vw;
+  top: 10vh;
+  width: 650px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  h1 {
+    position: relative;
+    font-size: 52px;
+    text-align: center;
+  }
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: left;
+    margin-top: -2px;
+    margin-left: 15px;
+    letter-spacing: 0.8px;
+    line-height: 35px;
+  }
+}
+.introduction h1:nth-child(2) {
+  color: gold;
+  position: relative;
+  top: -15px;
+}
+.introduction h1:nth-child(3) {
+  color: turquoise;
+  position: relative;
+  top: -30px;
+}
+.welcome-page .en-second-p {
+  width: 660px;
+  margin-top: 10px;
+  text-indent: 14%;
+}
+.name {
+  font-style: italic;
+  font-weight: bold;
+  color: rgb(105, 4, 4);
+  margin-right: 15px;
+}
+/*TH rules*/
+.welcome-page .th-first-p {
+  text-indent: 8.7%;
+  margin-bottom: 8px;
+}
+.welcome-page .th-p {
+  width: 700px;
+}
+.welcome-page .th-p2 {
+  text-indent: '55px';
+}
+.welcome-page .th-p4 {
+  text-indent: 6%;
+}
+.welcome-page .th-p5 {
+  float: right;
+}
+.btn {
+  width: 148px;
+  height: 41.5px;
+  position: absolute;
+  bottom: 10%;
+  right: 28.5vw;
+  background-color: black;
+  border: none;
+  border-radius: 7%;
+  cursor: pointer;
+}
+.next-page-btn {
+  clip-path: polygon(0 0, 0 100%, 40% 100%, 50% 85%, 60% 100%, 100% 100%, 100% 0);
+  width: 150px;
+  height: 40px;
+  color: rgba(255, 255, 255, 0.842);
+  font-size: 22px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: rgba(0, 225, 255, 0.753);
+  border: none;
+}
+.next-page-btn:hover {
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 225, 255);
+}
+.clicking {
+ margin-left: 1px;
+ width: 146px;
+ height: 39px;
+}
+.japanese {
+  position: absolute;
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 1.5em;
+  text-indent: -35%;
+  bottom: 0;
+  overflow: hidden;
+  animation: sliding 8s linear infinite;
+}
+@keyframes sliding {
+  100% {
+    text-indent: 100%;
+  }
+}
+@media (max-width: 1250px) and (min-width: 1050px) {
+  .image {
+    margin-left: 5vw;
+  }
+  .introduction {
+    right: 5vw;
+  }
+  .th-p5 {
+    margin-right: 20px;
+  }
+}
+@media (max-width: 1050px) and (min-width: 940px) {
+  .image {
+    margin-left: 0;
+  }
+  .introduction {
+    right: 0;
+  }
+  .introduction p {
+    width: 100%;
+    margin-left: 0;
+  }
+  .th-p {
+    width: 600px;
+  }
+}
+@media (max-width: 940px) and (min-width: 870px) {
+  .image {
+    width: 220px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .btn {
+    right: 40%;
+  }
+}
+@media (max-width: 870px) and (min-width: 655px) {
+  .image {
+    width: 220px;
+    height: 200px;
+    margin: auto;
+  }
+  .introduction {
+    position: static;
+    margin: auto;
+  }
+  .introduction p {
+    margin: 0;
+    width: 100%;
+  }
+  .th-p4 {
+    display: inline;
+  }
+  .th-p5::before {
+    content: '***********';
+    color: white;
+  }
+  .th-p5 {
+    float: unset;
+    display: inline;
+  } 
+  .btn {
+    position: static;
+    margin: 20px auto;
+  }
+  .japanese {
+    position: static;
+    bottom: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 655px){
+  .welcome-page {
+    min-width: 500px;
+  }
+  .image {
+    width: 220px;
+    height: 100px;
+    margin: auto;
+  }
+  .introduction {
+    width: 100%;
+    position: static;
+  }
+  .introduction h1 {
+    font-size: 40px;
+  }
+  .introduction h1:nth-child(2){
+    font-size: 40px;
+  }
+  .introduction h1:nth-child(3){
+    font-size: 40px;
+    margin-bottom: -15px;
+  }
+  .introduction p {
+    margin: 0;
+  }
+  .en-second-p {
+    width: 100%;
+  }
+  .th-first-p {
+    text-indent: 0;
+  }
+  .th-p {
+    width: 100%;
+    padding-bottom: 5px;
+  }
+  .th-p4 {
+    display: inline;
+  }
+  .th-p5 {
+    float: none;
+    text-indent: 60px;
+  }
+  .btn {
+    position: static;
+    margin: 20px auto;
+  }
+  .japanese {
+    width: 100%;
+  }
+}
