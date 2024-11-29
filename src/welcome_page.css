@@ -81,7 +81,7 @@ body {
   position: relative;
   top: -30px;
 }
-.welcome-page .en-second-p {
+.en-second-p {
   width: 660px;
   margin-top: 10px;
   text-indent: 14%;
@@ -93,29 +93,28 @@ body {
   margin-right: 15px;
 }
 /*TH rules*/
-.welcome-page .th-first-p {
+.th-first-p {
   text-indent: 8.7%;
   margin-bottom: 8px;
 }
-.welcome-page .th-p {
+.th-p {
   width: 700px;
 }
-.welcome-page .th-p2 {
+.th-p2 {
   text-indent: '55px';
 }
-.welcome-page .th-p4 {
+.th-p4 {
   text-indent: 6%;
 }
-.welcome-page .th-p5 {
+.th-p5 {
   float: right;
 }
 .btn {
   width: 148px;
   height: 41.5px;
-  position: absolute;
-  bottom: 10%;
-  right: 28.5vw;
   background-color: black;
+  margin-left: 60vw;
+  margin-bottom: 10px;
   border: none;
   border-radius: 7%;
   cursor: pointer;
@@ -141,13 +140,11 @@ body {
  height: 39px;
 }
 .japanese {
-  position: absolute;
   background-color: black;
   color: white;
   width: 100vw;
   height: 1.5em;
   text-indent: -35%;
-  bottom: 0;
   overflow: hidden;
   animation: sliding 8s linear infinite;
 }
@@ -186,11 +183,14 @@ body {
   .image {
     width: 220px;
     height: 200px;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin: auto;
+  }
+  .introduction {
+    position: static;
+    margin: auto;
   }
   .btn {
-    right: 40%;
+    margin: 50px auto;
   }
 }
 @media (max-width: 870px) and (min-width: 655px) {
@@ -219,19 +219,13 @@ body {
     display: inline;
   } 
   .btn {
-    position: static;
     margin: 20px auto;
   }
   .japanese {
-    position: static;
-    bottom: 0;
     width: 100%;
   }
 }
 @media (max-width: 655px){
-  .welcome-page {
-    min-width: 500px;
-  }
   .image {
     width: 220px;
     height: 100px;
@@ -272,10 +266,15 @@ body {
     text-indent: 60px;
   }
   .btn {
-    position: static;
     margin: 20px auto;
   }
   .japanese {
     width: 100%;
+  }
+}
+@media (min-height: 685px) {
+  .japanese {
+    position: absolute;
+    bottom: 0;
   }
 }

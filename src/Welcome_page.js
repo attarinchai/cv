@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from './features/languages/languageToggle';
 
 function WelcomePage(){
+  //classList test (not recommended)
   const navigate = useNavigate();
   const mainPage = () => {navigate('/main');};
   const language = useSelector((state)=>state.language.value);
@@ -101,7 +102,9 @@ function WelcomePage(){
         <h1>{text.h1}{language ? null : text.day}</h1>
         <h1>{text.h1}{language ? null : text.day}</h1>
         <p className={language ? null : 'th-first-p'}>{text.p}</p>
-        {language ? <p className='en-second-p'><span className='name'>{text.name}</span>{text.p2}</p> : <p class="th-p2">{text.p2}<span className="name"> {text.name}</span></p>}
+        {language ? <p className='en-second-p'><span className='name'>{text.name}</span>{text.p2}</p> : 
+          <p class="th-p2">{text.p2}<span className="name"> {text.name}</span></p>
+        }
         {language ? null : 
           <p className='th-p'>
             <p>{text.p3}</p>
@@ -113,6 +116,7 @@ function WelcomePage(){
       <div className='btn'>
         <button className='next-page-btn' onClick={()=>mainPage()} onMouseDown={nxtPgbtn} onMouseUp={nxtPgbtn}>{text.btn}</button>
       </div>
+      <div className='placement'></div>
       <footer className='japanese'>ラープの作り方 それは謎です。<span id="emote"></span></footer>
     </div>
   )

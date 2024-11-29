@@ -74,7 +74,7 @@ header nav ul li a:visited{
 #main-page .setting-icons {
   width: 30px;
   height: 30px;
-  background: radial-gradient(50% 50%, rgba(255, 255, 255, 0.637) 20%,black 20% , black 79%, transparent 79%); 
+  background: radial-gradient(50% 50%, white, white 20%,black 65% , black 79%, transparent 79%); 
   margin-bottom: 2px;
 }
 #main-page .setting-icons::before {
@@ -151,6 +151,8 @@ header nav ul li a:visited{
   width: 30px;
   height: 20px;
   padding: 0;
+  background-color: white;
+  border: 1px solid grey;
 }
 .dark-mode {
   width: 30px;
