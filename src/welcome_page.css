@@ -114,6 +114,7 @@ body {
   height: 41.5px;
   background-color: black;
   margin-left: 60vw;
+  margin-top: -20px;
   margin-bottom: 10px;
   border: none;
   border-radius: 7%;
@@ -272,7 +273,13 @@ body {
     width: 100%;
   }
 }
-@media (min-height: 685px) {
+@media (min-height: 620px) and (min-width: 1100px) {
+  .japanese {
+    position: absolute;
+    bottom: 0;
+  }
+}
+@media (min-height: 620px) and (max-width: 655px) {
   .japanese {
     position: absolute;
     bottom: 0;
