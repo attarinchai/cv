@@ -11,6 +11,7 @@ function MainPage (){
   let [isHover, setOnHover] = useState(false);
   let [darkMode, setDarkMode] = useState(false);
   let [scrollPass, setScrollPass] = useState(false);
+  let [you, charChange] = useState(false);
 
   const headerDiff = {background: 'linear-gradient(180deg, blue, #090012)'};
   const bg = {backgroundColor: '#090012'};
@@ -43,7 +44,11 @@ function MainPage (){
     pWC8: 'Time: too Late Night',
     pWC9: 'Movie: anything Oscar nominee',
     pWC10: 'Hobbies: breathing .... with technics',
-    pText: "guess you already know my name, yet again 'Attarinchai' my firstname, 'Rungmanee' my surename, unfortunately we got no middlename and the nickname's 'Orm'. I was graduated from Chiang Mai University as Mechanical Engineering. I know that sound irrelevant frfr. After graduate i decided to work with my home instead being the Engineer since internship doesn't satisfied. And that's it one day my freetime myself get log in to freeCodeCamp.com, i found it interesting that you can build the page with yourself even Mobile App or create a Game. Sum up to get in coding. By the way you might wonder how old am i, has to say i'm getting in 27 now but it's fine i could be junior we learn something new everyday. ",
+    pText: `guess you already know my name, yet again 'Attarinchai' my first-name, 'Rungmanee' my sure-name, 
+            unfortunately we got no middle-name and the nickname's 'Orm'. I was graduated from Chiang Mai University as Mechanical Engineering. 
+            I know that sound irrelevant frfr. After graduated i decided to work with my home instead being the Engineer since internship didn't satisfied. 
+            And that's it one day on freetime myself get log in to freeCodeCamp.com, i found it interesting that you can build the page with yourself even will be Mobile App or create a Game. 
+            Sum up to get in coding. By the way you might wonder how old am i, has to say i'm getting in 27 now but it's fine i could be junior we learn something new everyday. `,
     eduHead: 'PRE-EDUCATION',
     eduSubHead1: 'Middle/High School',
     eduBuilding1: 'ChongFah Xinsheng Wanishbamrung School',
@@ -89,7 +94,11 @@ function MainPage (){
     pWC8: '',
     pWC9: '',
     pWC10: '',
-    pText: 'แนะนำตัวอย่างเป็นทางการอีกครั้ง ผมนายอัฑฒริญชัย รุ่งมณี จบการศึกษาจากคณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่ หลังจากเรียนจบไม่ได้เลือกทำงานสายวิศวกรรมแต่อย่างใด กลับไปทำงานที่บ้าน จนช่วงปีสองปีที่ผ่านมา ได้เรียนการเขียนภาษา html css react จากเว็ปไซต์ freeCodeCamp ต้องยอมรับว่าค่อยๆเรียนรู้ไปเรื่อยๆ หลังจากจบ 3 คอร์สก็ได้มาพบกับเพื่อนๆ ที่ทำงานสายนี้มากมาย ทุกคนพูดเป็นเสียงเดียวกันว่า ต้องเรียนรู้หน้างานจริง จะเข้าใจได้ดีกว่าเรียนผ่านคอร์สไปเรื่อยๆ ผ่านไปอีกหลายต่อหลายเดือนก็ตัดสินใจไม่ไปต่อกับที่บ้าน จนเข้าเดือน 11 ก็ขุดข้อมูลที่ได้ผ่านมา ทำ cv ฉบับนี้เพื่อเริ่มสายงานด้านโปรแกรมอย่างเป็นทางการ และนี่ก็เป็นเรื่องราวทั้งหมดของผม',
+    pText: `แนะนำตัวอย่างเป็นทางการอีกครั้ง ผมนายอัฑฒริญชัย รุ่งมณี จบการศึกษาจากคณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่ 
+    หลังจากเรียนจบก็กลับไปทำงานที่บ้าน ไม่ได้เลือกทำงานสายวิศวกรรมแต่อย่างใด กระทั่งช่วงปี สองปีที่ผ่านมา 
+    ได้เรียนการเขียนภาษา html css javaScript จากเว็ปไซต์ freeCodeCamp อยู่ช่วงนึง แต่เรียนทิ้งไว้และไม่ได้สานต่อ 
+    จนวันนึงได้พูดคุยกับเพื่อนๆที่ทำงานสายนี้ จึงหันมาสนใจมากขึ้น และเริ่มเขียนลองเขียนเว็ปเป็นงานอดิเรก ในท้ายที่สุดก็ตัดสินใจเลือกจะทำงานด้านโปรแกรมมิ่ง
+    และนี่ก็เป็นเรื่องราวสั้นๆของผม`,
     eduHead: 'การศึกษา',
     eduSubHead1: 'ประถม-มัธยมศึกษา',
     eduBuilding1: 'โรงเรียนช่องฟ้าซินเซิงวาณิชบำรุง',
@@ -207,7 +216,15 @@ function MainPage (){
         </header>
         <section id="brief" className="brief" style={darkMode ? bg : null}>
           <article>
-            <img width="250px" height="150px" />
+            <div style={{width: "250px", height: '300px', backgroundColor: 'transparent', borderRadius: '10%', overflow: 'hidden'}}>
+              <img width="100%" src={you ? require('./pictures/IMG20241130193503.jpg') : require('./pictures/me.png')} />
+            </div>
+            <button
+              onClick={()=>{charChange(!you)}} 
+              style={{position: 'absolute', marginTop: '-35px', marginLeft: '10px', backgroundColor: '#DDD', padding: '0',border: '1px solid gray', borderRadius: '30%'}}
+            >
+              <i className="fa-solid fa-user" style={{fontSize: '16px', margin: '5px'}}></i>
+            </button>
             <p style={darkMode ? text : null}>{t.pName}</p>
             <p style={darkMode ? text : null}>{t.pAge}</p>
             <p style={darkMode ? text : null}>{t.pMilitary}</p>

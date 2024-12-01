@@ -7,15 +7,32 @@ body {
 .welcome-page h1, p {
   margin: 0;
 }
+.reminder {
+  background-color: whitesmoke;
+  border: 10px solid red;
+  width: 400px;
+  font-size: 100%;
+  position: fixed;
+  left: calc(50vw - 200px);
+  text-align: center;
+  z-index: 1;
+  padding-bottom: 10px;
+}
+.reminder p {
+  font-size: 20px;
+}
+.reminder button {
+  font-size: 20px;
+  margin-left: 85%;
+}
 .image {
+  position: relative;
   margin-left: 10vw;
   margin-top: 15vh;
   width: 300px;
-  height: 500px;
-  border: 2px solid black;
-}
-.white-color {
-  color: white;
+  height: 570px;
+  z-index: -1;
+  overflow: hidden;
 }
 .lang-btn {
   width: 50px;
@@ -114,7 +131,7 @@ body {
   height: 41.5px;
   background-color: black;
   margin-left: 60vw;
-  margin-top: -60px;
+  margin-top: -100px;
   margin-bottom: 10px;
   border: none;
   border-radius: 7%;
@@ -148,6 +165,7 @@ body {
   text-indent: -35%;
   overflow: hidden;
   animation: sliding 8s linear infinite;
+  margin-top: 50px;
 }
 @keyframes sliding {
   100% {
@@ -182,7 +200,7 @@ body {
 }
 @media (max-width: 940px) and (min-width: 870px) {
   .image {
-    width: 220px;
+    width: 300px;
     height: 200px;
     margin: auto;
   }
@@ -196,7 +214,7 @@ body {
 }
 @media (max-width: 870px) and (min-width: 655px) {
   .image {
-    width: 220px;
+    width: 300px;
     height: 200px;
     margin: auto;
   }
@@ -228,9 +246,10 @@ body {
 }
 @media (max-width: 655px){
   .image {
-    width: 220px;
-    height: 100px;
+    width: 300px;
+    height: 90px;
     margin: auto;
+    clip-path: inset(80% 5% 5% 15%);
   }
   .introduction {
     width: 100%;
@@ -273,13 +292,13 @@ body {
     width: 100%;
   }
 }
-@media (min-height: 620px) and (min-width: 1100px) {
+@media screen and (min-width: 520px) and (max-width: 655px) and (min-height: 550px) {
   .japanese {
     position: absolute;
     bottom: 0;
-  }
+  }  
 }
-@media (min-height: 620px) and (max-width: 655px) {
+@media screen and (min-height: 680px) {
   .japanese {
     position: absolute;
     bottom: 0;

@@ -1,5 +1,5 @@
 import './welcome_page.css';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from './features/languages/languageToggle';
@@ -10,6 +10,10 @@ function WelcomePage(){
   const mainPage = () => {navigate('/main');};
   const language = useSelector((state)=>state.language.value);
   const setLang = useDispatch();
+
+  let [clicking, setColor] = useState(false);
+  let [words, hideText] = useState(false);
+  let [visible, setVisiblity] = useState(true);
 
   const obj = {
                th: {name: "อัฑฒริญชัย รุ่งมณี",
@@ -27,8 +31,6 @@ function WelcomePage(){
                     btn: 'MAIN PAGE'}
               };
   let text;
-  let thElement;
-  let enElement;
   let date = new Date();
   
   function dailyGreeting(){
@@ -51,18 +53,8 @@ function WelcomePage(){
     }
   }
 
-  useEffect(()=>{
-    thElement = document.querySelector('#th');
-    enElement = document.querySelector('#en');
-  },[language]);
-
-  function flash(){
-    thElement.classList.toggle('white-color');
-    enElement.classList.toggle('white-color');
-  }
-  
   function nxtPgbtn(e){
-    e.target.classList.toggle('clicking');
+    e.target.classList.toggle('clicking');  //this toggle still working ????
   }
 
   function footerAnimate(receivedID){
@@ -76,26 +68,29 @@ function WelcomePage(){
     return ()=> {clearInterval(loops)};
   },[]);
 
-  let hideText = () => {
-    thElement.classList.toggle('lang-current');
-    if (thElement.textContent){
-      thElement.innerText = '';
-    }
-    else {
-      thElement.innerText = 'ไทย';
-    }
-  }
-
   dailyGreeting();
   language ? text = obj.en : text = obj.th ;
 
   return (
     <div className='welcome-page'>
-      <div className='image'>adding image soon</div>
-      <div id="lang-btn" className="lang-btn" style={{color: language? '#00BAFF': '#FF00AA'}} onClick={()=>{setLang(toggle()); hideText();}} onMouseDown={()=>{flash()}} onMouseUp={()=>{flash()}}>
-        <div id="th" className='lang-current'>ไทย</div>
+      <div id='reminder' className='reminder' style={{display: visible ? 'block' : 'none'}}>
+        <h2>REMINDER</h2>
+        <p>mobile resolution not support</p>
+        <p>please consider using Desktop</p>
+        <button onClick={()=>{setVisiblity(false)}}>X</button>
+      </div>
+      <div className='image'>
+        <img src={require('./pictures/me3over4.png')} width="300px" alt="myself" />
+      </div>
+      <div id="lang-btn" className="lang-btn" style={{color: language? '#00BAFF': '#FF00AA'}} 
+           onClick={()=>{setLang(toggle()); hideText(!words);}} onMouseDown={()=>{setColor(true)}} 
+           onMouseUp={()=>{setColor(false)}}
+      >
+        <div id="th" className={words ? '' :'lang-current'} style={{color: clicking ? 'white' : null}}>
+          {words ? '' : 'ไทย'}
+        </div>
         <div className='lang-block'></div>
-        <div id="en" className='lang-current'>EN</div>
+        <div id="en" className='lang-current' style={{color: clicking ? 'white' : null}}>EN</div>
       </div>
       <article className="introduction">
         <h1>{text.h1}{language ? null : text.day}</h1>
@@ -116,7 +111,6 @@ function WelcomePage(){
       <div className='btn'>
         <button className='next-page-btn' onClick={()=>mainPage()} onMouseDown={nxtPgbtn} onMouseUp={nxtPgbtn}>{text.btn}</button>
       </div>
-      <div className='placement'></div>
       <footer className='japanese'>ラープの作り方 それは謎です。<span id="emote"></span></footer>
     </div>
   )
