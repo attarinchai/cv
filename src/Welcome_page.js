@@ -12,7 +12,6 @@ function WelcomePage(){
   const setLang = useDispatch();
 
   let [clicking, setColor] = useState(false);
-  let [words, hideText] = useState(false);
   let [visible, setVisiblity] = useState(true);
 
   const obj = {
@@ -83,11 +82,11 @@ function WelcomePage(){
         <img src={require('./pictures/me3over4.png')} width="300px" alt="myself" />
       </div>
       <div id="lang-btn" className="lang-btn" style={{color: language? '#00BAFF': '#FF00AA'}} 
-           onClick={()=>{setLang(toggle()); hideText(!words);}} onMouseDown={()=>{setColor(true)}} 
+           onClick={()=>{setLang(toggle());}} onMouseDown={()=>{setColor(true)}} 
            onMouseUp={()=>{setColor(false)}}
       >
-        <div id="th" className={words ? '' :'lang-current'} style={{color: clicking ? 'white' : null}}>
-          {words ? '' : 'ไทย'}
+        <div id="th" className={language ? '' :'lang-current'} style={{color: clicking ? 'white' : null}}>
+          {language ? '' : 'ไทย'}
         </div>
         <div className='lang-block'></div>
         <div id="en" className='lang-current' style={{color: clicking ? 'white' : null}}>EN</div>
